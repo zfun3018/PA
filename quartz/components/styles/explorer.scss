@@ -130,6 +130,13 @@ button.desktop-explorer {
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
+      font-size: 0.85rem;
+      line-height: 1.4rem;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
 
       &.active {
         opacity: 1;
