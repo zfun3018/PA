@@ -2,7 +2,8 @@ name: Deploy Quartz
 on:
   push:
     branches:
-      - main  # 如果你的主分支叫 master，请把这里改成 master
+      - main     # <--- 极其重要：如果你的仓库主页显示是 master，这里必须改写成 master
+  workflow_dispatch: # <--- 添加这一行，这会在网页上强制开启“手动运行”按钮
 
 permissions:
   contents: read
