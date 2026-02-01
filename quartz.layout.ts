@@ -11,6 +11,7 @@ export const sharedPageComponents: SharedLayout = {
       "金融研报": "/专题/金融研报", // 你可以根据自己的文件夹修改
     },
   }),
+  afterBody: [],
 }
 
 // 这里的组件会出现在“内容页”（文章页）
