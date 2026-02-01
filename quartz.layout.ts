@@ -33,6 +33,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()), // 右侧目录
     Component.Backlinks(),   // 反向链接
   ],
+  afterBody: [],
 }
 
 // 文件夹列表页面的布局（如点击某个文件夹时显示的内容）
@@ -49,6 +50,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.Graph(),
     Component.Backlinks(),
   ],
+  afterBody: [],
 }
 
 // 标签页面的布局
@@ -65,6 +67,7 @@ export const tagPageLayout: PageLayout = {
     Component.Graph(),
     Component.Backlinks(),
   ],
+  afterBody: [],
 }
 
 // 404页面的布局
@@ -77,4 +80,5 @@ export const notFoundPageLayout: PageLayout = {
     Component.Darkmode(),
   ],
   right: [],
+  afterBody: [],
 }
