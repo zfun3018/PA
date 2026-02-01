@@ -11,6 +11,7 @@ export const sharedPageComponents: SharedLayout = {
       "Newsletter": "https://www.baidu.com", // 金融号必备订阅
     },
   }),
+  afterBody: [],
 }
 
 // 普通页面的布局（如笔记内容页）
