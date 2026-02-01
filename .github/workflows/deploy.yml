@@ -2,8 +2,7 @@ name: Deploy Quartz
 on:
   push:
     branches:
-      - main
-      - master
+      - v4
   workflow_dispatch:
 
 permissions:
