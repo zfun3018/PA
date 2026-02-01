@@ -8,7 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       "GitHub": "https://github.com/zfun3018",
-      "Newsletter": "www.baidu.com", // 金融号必备订阅
+      "Newsletter": "https://www.baidu.com", // 金融号必备订阅
     },
   }),
 }
@@ -41,3 +41,40 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+    Component.Search(),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer()),
+  ],
+  right: [
+    Component.Graph(),
+    Component.Backlinks(),
+  ],
+}
+
+// 标签页面的布局
+export const tagPageLayout: PageLayout = {
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Search(),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer()),
+  ],
+  right: [
+    Component.Graph(),
+    Component.Backlinks(),
+  ],
+}
+
+// 404页面的布局
+export const notFoundPageLayout: PageLayout = {
+  beforeBody: [Component.ArticleTitle()],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Search(),
+    Component.Darkmode(),
+  ],
+  right: [],
+}
