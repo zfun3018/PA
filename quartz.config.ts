@@ -3,67 +3,70 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "价格行为学笔记", // 浏览器标签页标题
-    enableSPA: true,
-    enablePopovers: true,
-    analytics: { provider: "google", tagId: "YOUR-TAG-ID" },
-    baseUrl: "zfun3018.github.io/PA", // 你的门牌号：GitHub的仓库网址
-    ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "created",
+    pageTitle: "价格行为学 | 笔记", // 网站顶部的标题
+    enableSPA: true, // 开启单页应用模式，切换页面不刷新，更丝滑
+    enablePopovers: true, // 开启鼠标悬停预览笔记功能
+    analytics: { provider: "google", tagId: "YOUR-ID" }, // 统计功能（可选）
+    baseUrl: "zfun3018.github.io/PA", // 你的门牌号
+    ignorePatterns: ["private", "templates", ".obsidian"], // 忽略这些文件夹，不发到网上
+    defaultDateType: "created", // 默认显示笔记的创建日期
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk", // 标题字体：现代、无衬线
-        body: "Source Sans Pro",      // 正文字体：高可读性
-        code: "IBM Plex Mono",      // 代码字体：极客感
+        header: "Schibsted Grotesk", // 标题字体，现代感强
+        body: "Inter",               // 正文字体，极简清晰
+        code: "Fira Code",           // 代码字体
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",         // 亮色模式背景
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          dark: "#2b2b2b",
-          darkgray: "#4e4e4e",
-          secondary: "#284b63",     // 链接与图标色
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          light: "#faf8f8",          // 浅色模式背景
+          lightgray: "#e5e5e5",      // 搜索框背景色
+          gray: "#b8b8b8",           // 辅助文字
+          darkgray: "#4e4e4e",       // 正文字体
+          dark: "#2b2b2b",           // 标题字体
+          secondary: "#284b63",      // 链接颜色
+          tertiary: "#84a59d",       // 鼠标悬停色
+          highlight: "rgba(143, 159, 169, 0.15)", // 搜索高亮
         },
         darkMode: {
-          light: "#0b0e14",         // 深色背景：深炭黑色，更有金融终端感
-          lightgray: "#1e222a",     // 搜索框、分割线背景
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",          // 正文字体色
-          secondary: "#00f5d4",     // 强调色：极光绿，象征股市上涨
-          tertiary: "#ff9f1c",      // 辅助色：橙色，象征预警或重点
-          highlight: "rgba(0, 245, 212, 0.1)", // 选中行高亮色
+          light: "#0b0e14",          // 深色模式背景（深蓝黑，金融终端感）
+          lightgray: "#1a1f29",      // 边框色
+          gray: "#646464",           // 辅助文字
+          darkgray: "#d4d4d4",       // 正文文字
+          dark: "#ebebec",           // 标题文字（亮白色）
+          secondary: "#00ff9d",      // 主题色（极光绿，像股票上涨的颜色）
+          tertiary: "#ffcc00",       // 强调色（黄金色）
+          highlight: "rgba(0, 255, 157, 0.1)", // 高亮色
         },
       },
     },
   },
   plugins: {
     transformers: [
-      Plugin.FrontMatter(),
-      Plugin.CreatedModifiedDate({ priority: ["frontmatter", "filesystem"] }),
-      Plugin.SyntaxHighlighting(),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
-      Plugin.GitHubFlavoredMarkdown(),
-      Plugin.TableOfContents(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
-      Plugin.Description(),
+      Plugin.FrontMatter(), // 解析笔记开头的 YAML 属性
+      Plugin.CreatedModifiedDate({ priority: ["frontmatter", "filesystem"] }), // 自动读取日期
+      Plugin.SyntaxHighlighting(), // 代码高亮
+      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }), // 完美支持 Obsidian 语法
+      Plugin.GitHubFlavoredMarkdown(), // 支持 GitHub 语法
+      Plugin.TableOfContents(), // 自动生成目录
+      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }), // 解析双链
+      Plugin.Latex({ renderEngine: "katex" }), // 金融公式必备：支持 Latex
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [Plugin.RemoveDrafts()], // 不显示标记为 draft: true 的草稿
     emitters: [
-      Plugin.AliasRedirects(),
-      Plugin.ComponentResources(),
-      Plugin.ContentPage(),
-      Plugin.FolderPage(),
-      Plugin.TagPage(),
-      Plugin.ContentIndex({ enableSiteMap: true, enableRSS: true }),
-      Plugin.Assets(),
-      Plugin.Static(),
-      Plugin.NotFoundPage(),
+      Plugin.AliasRedirects(), // 处理别名跳转
+      Plugin.ComponentResources(), // 打包组件资源
+      Plugin.ContentPage(), // 生成文章页面
+      Plugin.FolderPage(), // 生成文件夹页面
+      Plugin.TagPage(), // 生成标签页面
+      Plugin.ContentIndex({
+        enableSiteMap: true,
+        enableRSS: true,
+      }),
+      Plugin.Assets(), // 处理图片等静态资源
+      Plugin.Static(), // 处理静态网页
+      Plugin.NotFoundPage(), // 404 页面
     ],
   },
 }
