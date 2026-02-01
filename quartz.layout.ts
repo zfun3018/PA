@@ -1,68 +1,43 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
-// components shared across all pages
+// 全局通用的组件（如页眉、页脚）
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
-  afterBody: [],
+  header: [], // 头部保持简洁
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "GitHub": "https://github.com/zfun3018",
+      "Newsletter": "https://your-newsletter.com", // 金融号必备订阅
     },
   }),
 }
 
-// components for pages that display a single page (e.g. a single note)
+// 普通页面的布局（如笔记内容页）
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
-    Component.TagList(),
+    Component.Breadcrumbs(), // 面包屑导航，方便理清金融知识层级
+    Component.ArticleTitle(), // 笔记标题
+    Component.ContentMeta(), // 显示阅读时间、修改日期
+    Component.TagList(),     // 标签列表
   ],
   left: [
-    Component.PageTitle(),
+    Component.PageTitle(),   // 左上角站点名
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    Component.Explorer(),
+    Component.Search(),      // 搜索框（现代风核心）
+    Component.Darkmode(),    // 切换亮/暗模式
+    Component.DesktopOnly(Component.Explorer()), // 文件浏览器
   ],
   right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.Graph(),       // 关系图谱（金融知识联想极佳）
+    Component.DesktopOnly(Component.TableOfContents()), // 右侧目录
+    Component.Backlinks(),   // 反向链接
   ],
 }
 
-// components for pages that display lists of pages  (e.g. tags or folders)
+// 文件夹列表页面的布局（如点击某个文件夹时显示的内容）
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
-    Component.Explorer(),
-  ],
-  right: [],
-}
