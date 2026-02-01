@@ -33,7 +33,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Graph(),            // 知识图谱：展示金融知识点之间的关联（非常酷炫）
     Component.DesktopOnly(Component.TableOfContents()), // 文章目录
     Component.Backlinks(),        // 反向链接：查看哪些文章引用了当前篇目
-    Component.RecentNotes({ title: "最新研报", limit: 5 }), // 最近更新的 5 篇笔记
+    Component.RecentNotes({ title: "最近更新", limit: 5 }), // 最近更新的 5 篇笔记
   ],
 }
 
