@@ -8,7 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       "GitHub": "https://github.com/zfun3018/PA",
-      "金融研报": "/专题/金融研报", // 你可以根据自己的文件夹修改
+      "价格行为学": "价格行为学丨笔记", // 你可以根据自己的文件夹修改
     },
   }),
   afterBody: [],
