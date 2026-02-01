@@ -27,7 +27,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),           // 强大的搜索功能
     Component.Darkmode(),         // 深色模式：现代酷炫感的核心
-    Component.DesktopOnly(Component.Explorer()), // 文件资源管理器
+    Component.DesktopOnly(Component.Explorer({ title: "🔖目录" })), // 文件资源管理器
   ],
   right: [
     Component.Graph(),            // 知识图谱：展示金融知识点之间的关联（非常酷炫）
@@ -45,7 +45,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({ title: "🔖目录" })),
   ],
   right: [],
 }
