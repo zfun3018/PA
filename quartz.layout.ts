@@ -16,19 +16,13 @@ export const sharedPageComponents: SharedLayout = {
       align: 'center',
       variant: 'large'
     }),
-    Component.Navigation({
-      links: {
-        "首页": "/",
-        "价格行为学": "/价格行为学丨笔记",
-        "知识图谱": "/graph",
-        "GitHub": "https://github.com/zfun3018/PA",
-      }
-    })
   ],
   footer: Component.Footer({
     links: {
+      "首页": "/",
+      "价格行为学": "/价格行为学丨笔记",
+      "知识图谱": "/graph",
       "GitHub": "https://github.com/zfun3018/PA",
-      "价格行为学": "价格行为学丨笔记",
     },
   }),
   afterBody: [],
@@ -43,12 +37,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.Callout({
-      icon: "📢",
-      title: "公告",
-      body: "欢迎访问我的价格行为学学习博客！这里记录了我对Al Brooks价格行为学理论的学习笔记与深度研讨。",
-      kind: "info"
-    }),
     Component.Search(),
     Component.Darkmode(),
     Component.Explorer({ 
@@ -74,12 +62,6 @@ export const defaultListPageLayout: PageLayout = {
     Component.ContentMeta(),
   ],
   left: [
-    Component.Callout({
-      icon: "📢",
-      title: "公告",
-      body: "欢迎访问我的价格行为学学习博客！这里记录了我对Al Brooks价格行为学理论的学习笔记与深度研讨。",
-      kind: "info"
-    }),
     Component.Search(),
     Component.Darkmode(),
     Component.Explorer({ 
