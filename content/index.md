@@ -1,11 +1,11 @@
 ---
-title: 首页
+title:
 description: 价格行为学学习博客 - 记录对Al Brooks价格行为学理论的学习笔记与深度研讨
 ---
 
 <div style="text-align: center; margin: 2rem 0;">
-  <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">📈 价格行为学学习博客</h1>
-  <p style="font-size: 1.2rem; color: #666;">探索市场本质，掌握交易智慧</p>
+  <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">📈 《价格行为学》笔记</h1>
+  <p style="font-size: 1.2rem; color: #666;">整理了学习中遇到的问题与思考</p>
 </div>
 
 <div style="background-color: #f8f9fa; border-left: 4px solid #3498db; padding: 1.5rem; margin: 2rem 0; border-radius: 4px;">
